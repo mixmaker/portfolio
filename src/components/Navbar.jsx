@@ -166,6 +166,10 @@ const StyledNavbar = styled.div`
       display: flex;
       .navToggle {
         display: flex;
+        svg {
+          color: var(--primary-text);
+          transition: 1s;
+        }
       }
       /* position: relative; */
       svg {
