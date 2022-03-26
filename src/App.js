@@ -29,7 +29,7 @@ function App() {
 
   return (
     <StyledApp className="App">
-      {/* <Scroll /> */}
+      <Scroll />
       <LoadingBar
         color="var(--loading-bar-bg)"
         height={3}

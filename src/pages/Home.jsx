@@ -89,7 +89,6 @@ const StyledHome = styled(motion.div)`
         margin-left: 0.1rem;
       }
       &:hover {
-        /* color: #fff; */
         background-color: #ccceff;
         background-color: var(--button-hover-background);
         svg {
