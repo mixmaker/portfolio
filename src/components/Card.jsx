@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { motion } from "framer-motion";
 
 const Card = ({ element }) => {
   return (
-    <StyledCard>
+    <StyledCard
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="card-img">
-        <img src={element.image} alt="coverImg" />
+        <img src={element.image} alt="coverImg"/>
       </div>
       <div className="card-details">
         <h2>{element.name}</h2>
@@ -27,20 +34,19 @@ const Card = ({ element }) => {
   );
 };
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)`
   width: 350px;
-  height: 400px;
   border-radius: 10px;
-  margin: 2rem 0.75rem;
+  margin: 2rem;
   overflow: hidden;
   background-color: var(--secondary-background);
   box-shadow: 27px 27px 57px -37px var(--box-shadow);
-  transition: 1s;
+  transition: background-color 1s, box-shadow 1s;
 
   .card-img {
     width: 100%;
     img {
-      width: 125%;
+      width: 350px;
     }
   }
   .card-details {
@@ -100,7 +106,7 @@ const StyledCard = styled.div`
     }
   }
   @media only screen and (max-width: 768px) {
-    margin: .75rem;
+    margin: 0.75rem;
   }
 `;
 export default Card;

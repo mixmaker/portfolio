@@ -16,8 +16,9 @@ body.dark{
     --primary-background: #1d2020;
     --secondary-background: #1c1d1d;
     --nav-background: #1a1c1d;
-    --button-hover-background: #7c7ebb;
-    --icon-color: #b9b2d6;
+    --button-background: #bdb6d9;
+    --button-hover-background: #bca6fd;
+    --icon-color: #bdb6d9;
     --icon-hover: #bca6fd;
     --box-shadow: #000;
     --loading-bar-bg: #afb1ec;
@@ -35,7 +36,8 @@ body.light{
     --primary-background: #fff9ff;
     --secondary-background: #fff;
     --nav-background: #fff;
-    --button-hover-background: #ccceff;
+    --button-background: #cec6f1;
+    --button-hover-background: #a58dec;
     --icon-color: #493f72;
     --icon-hover: #8d6eeb;
     --box-shadow: #b9bbf8;

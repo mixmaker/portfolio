@@ -83,7 +83,7 @@ const StyledHome = styled(motion.div)`
       font-family: "Montserrat", sans-serif;
       font-size: 1rem;
       overflow: hidden;
-      color: var(--primary-text);
+      background-color: var(--button-background);
       svg {
         transition: 0.5s;
         margin-left: 0.1rem;
