@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -41,24 +41,40 @@ const Navbar = ({ setProgress, themeMode, setThemeMode, navStyle }) => {
       >
         <ul>
           <li>
-            <Link to={"/"} onClick={pageLoadHandler}>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) => (isActive ? "navActive" : "")}
+              onClick={pageLoadHandler}
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/about"} onClick={pageLoadHandler}>
+            <NavLink
+              to={"/about"}
+              className={({ isActive }) => (isActive ? "navActive" : "")}
+              onClick={pageLoadHandler}
+            >
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/works"} onClick={pageLoadHandler}>
+            <NavLink
+              to={"/works"}
+              className={({ isActive }) => (isActive ? "navActive" : "")}
+              onClick={pageLoadHandler}
+            >
               My Works
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to={"/contact"} onClick={pageLoadHandler}>
+            <NavLink
+              to={"/contact"}
+              className={({ isActive }) => (isActive ? "navActive" : "")}
+              onClick={pageLoadHandler}
+            >
               Contact Me
-            </Link>
+            </NavLink>
           </li>
           <li>
             <input
@@ -111,8 +127,6 @@ const StyledNavbar = styled.div`
       justify-content: space-evenly;
       align-items: center;
       list-style: none;
-      display: flex;
-      margin: auto 0;
       li {
         margin-right: 0.4rem;
         a {
@@ -120,6 +134,10 @@ const StyledNavbar = styled.div`
           text-decoration: none;
           /* color: #423c5a; */
           color: var(--secondary-text);
+          transition: color 1s;
+        }
+        a.navActive {
+          color: #d6d6d6;
         }
       }
     }

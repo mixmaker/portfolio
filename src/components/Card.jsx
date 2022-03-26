@@ -13,13 +13,13 @@ const Card = ({ element }) => {
       transition={{ duration: 0.5 }}
     >
       <div className="card-img">
-        <img src={element.image} alt="coverImg"/>
+        <img src={element.image} alt="coverImg" />
       </div>
       <div className="card-details">
         <h2>{element.name}</h2>
         <p>&nbsp; {element.description}</p>
         <div className="buttons">
-          <a href={element.url} target="_blank" rel="noreferrer">
+          <a href={element.url.replace('shoumik/', 'shoumik/tr:w-0.4/')} target="_blank" rel="noreferrer">
             <button>Live demo</button>
           </a>
           <a href={element.github} target="_blank" rel="noreferrer">
@@ -35,7 +35,9 @@ const Card = ({ element }) => {
 };
 
 const StyledCard = styled(motion.div)`
+  position: relative;
   width: 350px;
+  height: 392.76px;
   border-radius: 10px;
   margin: 2rem;
   overflow: hidden;

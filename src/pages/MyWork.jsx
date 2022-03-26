@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { fetchUrl } from "../assets/data";
 import { pageAnimation } from "../components/animation";
 import Card from "../components/Card";
-import Movie from "../components/Movie";
-import Filter from "../components/Filter";
 
 const CategoryButtons = ({ categoryActive, setCategoryActive }) => {
   return (
@@ -99,14 +97,14 @@ const MyWork = () => {
   );
 };
 
-const StyledMyWork = styled.div`
+const StyledMyWork = styled(motion.div)`
   position: relative;
   min-height: 82vh;
   padding: 2rem 4rem;
   .heading {
     display: flex;
     align-items: flex-end;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     h1 {
       color: var(--heading-text);
     }
@@ -130,6 +128,7 @@ const StyledMyWork = styled.div`
     }
   }
   .card-container {
+    margin-top: .5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-column-gap: 2rem;
