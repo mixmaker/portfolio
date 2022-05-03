@@ -25,7 +25,7 @@ const Navbar = ({ setProgress, themeMode, setThemeMode, navStyle }) => {
   const [isExpanded, setIsExpanded] = useState(getWidth);
   const navigate2home = useNavigate();
   return (
-    <StyledNavbar>
+    <StyledNavbar id="navbar">
       <div className="nav-left">
         <h1 onClick={() => navigate2home("/")}>Shoumik Kumbhakar</h1>
         <button
@@ -108,7 +108,7 @@ const StyledNavbar = styled.div`
   background: var(--nav-background);
   color: var(--primary-text);
   z-index: 5;
-  transition: 1s;
+  transition: background-color 1s, color 1s;
   .nav-left {
     h1 {
       font-size: 1.6rem;

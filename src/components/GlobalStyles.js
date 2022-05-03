@@ -65,6 +65,9 @@ button, input[type='submit']{
     border-radius: 5px;
     transition: .5s;
 }
+.scrollbar-track{
+    background-color: transparent !important;
+}
 .scrollbar-thumb{
     background-color: #ae94fc !important;
 }

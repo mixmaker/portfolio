@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <StyledApp className="App">
+    <StyledApp id="App">
       <Scroll />
       <LoadingBar
         color="var(--loading-bar-bg)"

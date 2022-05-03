@@ -18,7 +18,7 @@ const Footer = () => {
         />
         <div className="footer-left-text">
           <div className="footer-name">Shoumik Kumbhakar</div>
-          <div className="footer-copyright">Copyright © 2022 shoumik.cf</div>
+          <div className="footer-copyright">Copyright © 2022 shoumik.tk</div>
         </div>
       </div>
       <div className="footer-right">
