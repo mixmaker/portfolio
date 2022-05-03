@@ -19,7 +19,7 @@ const Card = ({ element }) => {
         <h2>{element.name}</h2>
         <p>&nbsp; {element.description}</p>
         <div className="buttons">
-          <a href={element.url.replace('shoumik/', 'shoumik/tr:w-0.4/')} target="_blank" rel="noreferrer">
+          <a href={element.url} target="_blank" rel="noreferrer">
             <button>Live demo</button>
           </a>
           <a href={element.github} target="_blank" rel="noreferrer">
@@ -47,8 +47,11 @@ const StyledCard = styled(motion.div)`
 
   .card-img {
     width: 100%;
+    height: 56%;
     img {
-      width: 350px;
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
   }
   .card-details {
