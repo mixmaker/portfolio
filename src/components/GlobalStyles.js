@@ -14,8 +14,8 @@ body.dark{
     --primary-text: #f5f5f8;
     --secondary-text: #7c7c7c;
     --primary-background: #1d2020;
-    --secondary-background: #1c1d1d;
-    --nav-background: #1a1c1d;
+    --secondary-background: #212222;
+    --nav-background: #191c1d;
     --button-background: #bdb6d9;
     --button-hover-background: #bca6fd;
     --icon-color: #bdb6d9;
