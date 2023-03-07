@@ -2,8 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { fetchUrl } from "../assets/data";
-import { pageAnimation } from "../components/animation";
-import Card from "../components/Card";
+import { pageAnimation, Card } from "../components";
 
 const CategoryButtons = ({ categoryActive, setCategoryActive }) => {
   return (

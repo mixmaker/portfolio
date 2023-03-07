@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import Avatar from "./Avatar";
+import { Avatar } from "./";
 
 const Footer = () => {
   return (
@@ -96,7 +96,7 @@ const StyledFooter = styled.div`
       .footer-left-text {
         flex-direction: column;
         .footer-name {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
         .footer-copyright {
           border: none;
@@ -105,13 +105,12 @@ const StyledFooter = styled.div`
         }
       }
     }
-    .footer-right{
+    .footer-right {
       width: 30%;
     }
   }
   @media only screen and (max-width: 425px) {
-  padding: 0 1rem;
+    padding: 0 1rem;
   }
-
 `;
 export default Footer;

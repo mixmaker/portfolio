@@ -1,17 +1,10 @@
+import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import MyWork from "./pages/MyWork";
-import Contact from "./pages/Contact";
-import Footer from "./components/Footer";
 import styled from "styled-components";
 import LoadingBar from "react-top-loading-bar";
-import { useEffect, useState } from "react";
-import Background from "./components/Background";
-import Scroll from "./components/SmoothScroll";
 import { AnimatePresence } from "framer-motion";
-import PageNotFound from "./pages/PageNotFound";
+import { Home, About, MyWork, Contact, PageNotFound } from "./pages";
+import { Scroll, Background, Footer, Navbar } from "./components";
 
 function App() {
   const [progress, setProgress] = useState(0);

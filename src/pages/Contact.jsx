@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-import { pageAnimation } from "../components/animation";
-import Avatar from "../components/Avatar";
+import { Avatar, pageAnimation } from "../components";
 
 const Contact = () => {
   document.title = "Contact | Shoumik Kumbhakar";

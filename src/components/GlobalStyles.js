@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const Globalstyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
 *, ::before, ::after{
     margin: 0;
     padding: 0;
@@ -72,4 +72,4 @@ button, input[type='submit']{
     background-color: #ae94fc !important;
 }
 `;
-export default Globalstyles;
+export default GlobalStyles;

@@ -6,10 +6,16 @@ export const fetchUrl = () => {
 
 export const timelineItems = [
   {
-    date: "2021 - present",
+    date: "2022 - present",
+    cardTitle: "Job",
+    cardDetailedText:
+      "Working as BPM at India Post",
+  },
+  {
+    date: "2021 - 2022",
     cardTitle: "College (B.Tech)",
     cardDetailedText:
-      "Currently persuing B.Tech on ECE from Ramkrishna Mahato Government Engineering College",
+      "B.Tech on ECE from Ramkrishna Mahato Government Engineering College, I had to leave college for job",
   },
   {
     date: "2021",

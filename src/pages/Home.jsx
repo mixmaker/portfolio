@@ -4,7 +4,7 @@ import heroImg from "../assets/hero-image.jpg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../components/animation";
+import { pageAnimation } from "../components";
 
 const Home = () => {
   const navigate = useNavigate();
