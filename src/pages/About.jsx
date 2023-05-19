@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { pageAnimation } from "../components";
+import { Avatar } from "../components";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -65,7 +65,9 @@ const About = () => {
               project.
             </p>
           </div>
-          <div className="img_div"></div>
+          <div className="img_div">
+            <Avatar />
+          </div>
           <div className="achievements">
             <div>
               <AnimatedNumbers value={20} />
@@ -403,11 +405,8 @@ const StyledAbout = styled(motion.div)`
     }
     .img_div {
       width: 25vw;
-      height: 400px;
-      background-color: #6e6e6e;
     }
     .achievements {
-      /* background-color: #6f6f6f; */
       width: 25vw;
       display: flex;
       flex-direction: column;
