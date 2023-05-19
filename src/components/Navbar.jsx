@@ -1,15 +1,37 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import MenuIcon from "@mui/icons-material/Menu";
+import { BiMenuAltRight } from "react-icons/bi";
+import { Logo } from "./Logo";
+import { motion } from "framer-motion";
 
-const Navbar = ({ setProgress, themeMode, setThemeMode, navStyle }) => {
-  const pageLoadHandler = () => {
-    setProgress(40);
-    setTimeout(() => {
-      setProgress(100);
-    }, 50);
-  };
+const LinkTab = ({ name, link, waveColor, i, locate }) => {
+  return (
+    <motion.li
+      initial={{ y: "2%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, delay: i * 0.2 }}
+    >
+      <NavLink
+        to={link}
+        className={({ isActive }) => (isActive ? "navActive" : "")}
+      >
+        {name}
+        <span className={locate.pathname === link ? "active" : ""}></span>
+      </NavLink>
+      <Outlet />
+    </motion.li>
+  );
+};
+
+const Navbar = ({ themeMode, setThemeMode, navStyle }) => {
+  const links = [
+    { name: "Home", link: "/", waveColor: "#5c80bc" },
+    { name: "About", link: "/about", waveColor: "#f14964" },
+    { name: "Projects", link: "/projects", waveColor: "#1ac0a2" },
+    { name: "Contact Me", link: "/contact", waveColor: "" },
+  ];
+
   function getWidth() {
     return Math.max(
       document.body.scrollWidth,
@@ -23,60 +45,36 @@ const Navbar = ({ setProgress, themeMode, setThemeMode, navStyle }) => {
   }
 
   const [isExpanded, setIsExpanded] = useState(getWidth);
-  const navigate2home = useNavigate();
+  const locate = useLocation();
+
   return (
-    <StyledNavbar id="navbar">
-      <div className="nav-left">
-        <h1 onClick={() => navigate2home("/")}>Shoumik Kumbhakar</h1>
-        <button
+    <StyledNavbar
+      id="navbar"
+      initial={{ opacity: 0, y: "8%" }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 1, staggerChildren: 1 }}
+    >
+      <motion.div className="nav-left">
+        <Logo />
+        <BiMenuAltRight
           className="navToggle"
+          style={{ fontSize: "1.2em" }}
           onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <MenuIcon />
-        </button>
-      </div>
-      <div
+        />
+      </motion.div>
+      <motion.div
         className="nav-right"
         style={isExpanded ? {} : { opacity: "0", display: "none" }}
       >
         <ul>
-          <li>
-            <NavLink
-              to={"/"}
-              className={({ isActive }) => (isActive ? "navActive" : "")}
-              onClick={pageLoadHandler}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/about"}
-              className={({ isActive }) => (isActive ? "navActive" : "")}
-              onClick={pageLoadHandler}
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/works"}
-              className={({ isActive }) => (isActive ? "navActive" : "")}
-              onClick={pageLoadHandler}
-            >
-              My Works
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/contact"}
-              className={({ isActive }) => (isActive ? "navActive" : "")}
-              onClick={pageLoadHandler}
-            >
-              Contact Me
-            </NavLink>
-          </li>
-          <li>
+          {links.map((li, i) => (
+            <LinkTab {...li} key={li.name} i={i} locate={locate} />
+          ))}
+          <motion.li
+            initial={{ y: "2%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
             <input
               type="checkbox"
               className="toggle"
@@ -86,16 +84,16 @@ const Navbar = ({ setProgress, themeMode, setThemeMode, navStyle }) => {
                   : setThemeMode("light");
               }}
             />
-          </li>
+          </motion.li>
         </ul>
-      </div>
+      </motion.div>
     </StyledNavbar>
   );
 };
 
-const StyledNavbar = styled.div`
+const StyledNavbar = styled(motion.div)`
   //general
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   height: 10vh;
@@ -104,17 +102,12 @@ const StyledNavbar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem;
-  border-bottom: 0.5px solid var(--secondary-text);
-  background: var(--nav-background);
+  /* border-bottom: 0.5px solid var(--secondary-text); */
+  /* background: var(--nav-background); */
   color: var(--primary-text);
   z-index: 5;
   transition: background-color 1s, color 1s;
   .nav-left {
-    h1 {
-      font-size: 1.6rem;
-      font-family: "Comfortaa", cursive;
-      font-weight: 400;
-    }
     .navToggle {
       display: none;
     }
@@ -129,15 +122,32 @@ const StyledNavbar = styled.div`
       list-style: none;
       li {
         margin-right: 0.4rem;
+        position: relative;
+        &:hover span {
+          width: 100%;
+        }
+        span {
+          position: absolute;
+          display: flex;
+          height: 1px;
+          /* bottom: -2px; */
+          width: 0%;
+          background-color: var(--primary-text);
+          transition: width;
+          transition-duration: 300ms;
+        }
+        span.active {
+          width: 100%;
+        }
         a {
           font-weight: 400;
           text-decoration: none;
           /* color: #423c5a; */
-          color: var(--secondary-text);
+          color: var(--nav-text);
           transition: color 1s;
         }
         a.navActive {
-          color: #d6d6d6;
+          color: var(--nav-text-active);
         }
       }
     }

@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-import avatar from "../assets/avatar_sk.jpeg";
+import avatar from "../assets/avataaars (1).png";
+import avatar_transparent from "../assets/avataaars.png";
 
-const Avatar = ({customStyle}) => {
+const Avatar = ({ customStyle, transparent }) => {
   return (
-    <StyledAvatar className="avatar" style={customStyle}>
-      <img src={avatar} alt="avatar" />
+    <StyledAvatar
+      transparent={transparent}
+      className="avatar"
+      style={customStyle}
+    >
+      <img src={transparent ? avatar_transparent : avatar} alt="avatar" />
     </StyledAvatar>
   );
 };
@@ -18,8 +23,8 @@ const StyledAvatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #fff;
-  outline: 1px solid #000;
+  border: ${(props) => (props.transparent ? "1px solid #fff" : "none")};
+  outline: ${(props) => (props.transparent ? "1px solid #000" : "none")};
   /* margin: 0 auto;
   margin-bottom: 1.5rem; */
   img {

@@ -4,12 +4,11 @@ export const fetchUrl = () => {
   );
 };
 
-export const timelineItems = [
+export const educationTimeline = [
   {
     date: "2022 - present",
     cardTitle: "Job",
-    cardDetailedText:
-      "Working as BPM at India Post",
+    cardDetailedText: "Working as BPM at India Post",
   },
   {
     date: "2021 - 2022",
@@ -45,9 +44,42 @@ export const timelineItems = [
       "Completed my Secondary Education from Asansol Ramakrishna Mission High School",
   },
   {
-    date: "2009-2010",
+    date: "2009 - 2010",
     cardTitle: "Pre-primary",
     cardDetailedText:
       "Completed my pre-primary from Shyamapur Primary School, Mejia",
+  },
+];
+
+export const experienceTimeline = [
+  {
+    date: "2022 - Present",
+    cardTitle: "Software Engineer @Google",
+    cardDetailedText:
+      "Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization.",
+  },
+  {
+    date: "Summer 2021",
+    cardTitle: "Intern @Facebook",
+    cardDetailedText:
+      "Worked on a team responsible for developing a new mobile app feature that allowed users to create and share short-form video content, including designing and implementing a new user interface and developing the backend infrastructure to support the feature.",
+  },
+  {
+    date: "2020 - 2021",
+    cardTitle: "Software Developer @Amazon",
+    cardDetailedText:
+      "Worked on a team responsible for developing Amazon's mobile app, including implementing new features such as product recommendations and user reviews, and optimizing the app's performance and reliability.",
+  },
+  {
+    date: "Summer 2019",
+    cardTitle: "Software Developer Intern @Microsoft",
+    cardDetailedText:
+      "Worked on a team responsible for developing new features for Microsoft's Windows operating system, including implementing a new user interface for a system settings panel and optimizing the performance of a core system component",
+  },
+  {
+    date: "Fall 2018",
+    cardTitle: "Teaching Assistant @MIT",
+    cardDetailedText:
+      "Assisted in teaching a course on computer programming, held office hours to help students with assignments, and graded exams and assignments.",
   },
 ];

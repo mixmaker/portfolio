@@ -6,47 +6,50 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 }
+html, body,#root{
+    height: 100%;
+}
 html{
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 body.dark{
     --heading-text: #a49dc2;
     --primary-text: #f5f5f8;
     --secondary-text: #7c7c7c;
-    --primary-background: #1d2020;
-    --secondary-background: #212222;
-    --nav-background: #191c1d;
+    --nav-text: #b7ade1;
+    --nav-text-active: #d1cbea;
+    --primary-background: #161717;
+    --secondary-background: #1b1b1b;
     --button-background: #bdb6d9;
     --button-hover-background: #bca6fd;
     --icon-color: #bdb6d9;
-    --icon-hover: #bca6fd;
+    --icon-hover: #ffffff;
     --box-shadow: #000;
     --loading-bar-bg: #afb1ec;
-    .bg{
-        opacity: 0.8;
-        @media only screen and (max-width: 768px) {
-            opacity: 0.4;
-        }
-    }
+    --vibrant: #2ee59d;
 }
 body.light{
     --heading-text: #3b2f6e;
     --primary-text: #3b3066;
     --secondary-text: #5d5679;
+    --nav-text: #a298cc;
+    --nav-text-active: #252136;
     --primary-background: #fff9ff;
     --secondary-background: #fff;
-    --nav-background: #fff;
     --button-background: #cec6f1;
     --button-hover-background: #a58dec;
     --icon-color: #493f72;
     --icon-hover: #8d6eeb;
     --box-shadow: #b9bbf8;
     --loading-bar-bg: #3b40db;
-    .img-container::after{
-        display: none;
-    }
+    --vibrant: #00b86e;
     .bg{
-        opacity: 0.4;
+        opacity: 0.9;
     }
 }
 body{

@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaGithub,
+} from "react-icons/fa";
 import { Avatar } from "./";
 
 const Footer = () => {
@@ -18,7 +23,9 @@ const Footer = () => {
         />
         <div className="footer-left-text">
           <div className="footer-name">Shoumik Kumbhakar</div>
-          <div className="footer-copyright">Copyright © 2022 shoumik.tk</div>
+          <div className="footer-copyright">
+            Made with <span>&hearts;</span> by Shoumik
+          </div>
         </div>
       </div>
       <div className="footer-right">
@@ -27,21 +34,35 @@ const Footer = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <FacebookIcon />
+          <FaFacebookF />
         </a>
         <a
-          href="https://instagram.com/shoumik.kumbhakar"
+          href="https://instagram.com/almost_shoumik"
           target="_blank"
           rel="noreferrer"
         >
-          <InstagramIcon />
+          <FaInstagram />
         </a>
         <a
           href="https://www.linkedin.com/in/shoumik-kumbhakar-06a195225"
           target="_blank"
           rel="noreferrer"
         >
-          <LinkedInIcon />
+          <FaLinkedinIn />
+        </a>
+        <a
+          href="https://www.twitter.com/almost_shoumik"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaTwitter />
+        </a>
+        <a
+          href="https://www.github.com/mixmaker"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaGithub />
         </a>
       </div>
     </StyledFooter>
@@ -72,11 +93,14 @@ const StyledFooter = styled.div`
         /* color: #797097;
         color: #b7b0cf; */
         color: var(--secondary-text);
+        span{
+          color: red;
+        }
       }
     }
   }
   .footer-right {
-    width: 10%;
+    width: 15%;
     display: flex;
     justify-content: space-evenly;
     a {
@@ -85,6 +109,7 @@ const StyledFooter = styled.div`
       svg {
         color: var(--icon-color);
         transition: 0.5s;
+        font-size: 1.5em;
         &:hover {
           color: var(--icon-hover);
         }

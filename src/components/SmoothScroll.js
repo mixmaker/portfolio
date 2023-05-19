@@ -19,10 +19,10 @@ const Scroll = () => {
     const fixedNav = document.getElementById("navbar");
     Scrollbar.use(OverscrollPlugin);
     const scrollbar = Scrollbar.init(document.body, options);
-    scrollbar.addListener(({ offset }) => {
-      fixedNav.style.top = offset.y + "px";
-      fixedNav.style.left = offset.x + "px";
-    });
+    // scrollbar.addListener(({ offset }) => {
+    //   fixedNav.style.top = offset.y + "px";
+    //   fixedNav.style.left = offset.x + "px";
+    // });
   }, [document]);
 
   return null;

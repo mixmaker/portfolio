@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import GitHubIcon from "@mui/icons-material/GitHub";
+// import GitHubIcon from "@mui/icons-material/GitHub";
 import { motion } from "framer-motion";
 
 const Card = ({ element }) => {
@@ -12,24 +12,20 @@ const Card = ({ element }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="card-img">
-        <img src={element.image} alt="coverImg" />
-      </div>
-      <div className="card-details">
-        <h2>{element.name}</h2>
-        <p>&nbsp; {element.description}</p>
-        <div className="buttons">
-          <a href={element.url} target="_blank" rel="noreferrer">
-            <button>Live demo</button>
-          </a>
-          <a href={element.github} target="_blank" rel="noreferrer">
-            <button>
-              <GitHubIcon sx={{ fontSize: ".8rem", marginRight: ".2rem" }} />
-              Github
-            </button>
-          </a>
+      <a href={element.url} target="_blank" rel="noreferrer">
+        <div className="card-img">
+          <img src={element.image} alt="coverImg" />
         </div>
-      </div>
+        <div className="card-details">
+          <div className="card-header">
+            <h2>{element.name}</h2>
+            <a href={element.github} target="_blank" rel="noreferrer">
+              {/* <GitHubIcon sx={{ fontSize: "1.2rem", color: "#fff" }} /> */}
+            </a>
+          </div>
+          <p>&nbsp; {element.description}</p>
+        </div>
+      </a>
     </StyledCard>
   );
 };
@@ -37,7 +33,7 @@ const Card = ({ element }) => {
 const StyledCard = styled(motion.div)`
   position: relative;
   width: 350px;
-  height: 392.76px;
+  height: 250px;
   border-radius: 10px;
   margin: 2rem;
   overflow: hidden;
@@ -47,7 +43,8 @@ const StyledCard = styled(motion.div)`
 
   .card-img {
     width: 100%;
-    height: 56%;
+    height: 100%;
+    transition: 0.5s;
     img {
       object-fit: contain;
       width: 100%;
@@ -55,13 +52,48 @@ const StyledCard = styled(motion.div)`
     }
   }
   .card-details {
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 1rem;
-    h2 {
-      margin-bottom: 0.5rem;
-      color: var(--primary-text);
-    }
+    background-color: #000000e1;
     p {
       color: var(--secondary-text);
+      scale: 0;
+      transform-origin: bottom;
+      transition-duration: 0.5s;
+      transition-delay: 0.1s;
+      text-align: center;
+      margin-top: 0.75em;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      h2 {
+        color: var(--primary-text);
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em;
+        border-radius: 7px;
+        transition-duration: 0.5s;
+        transition-delay: 0.1s;
+        &:hover {
+          background-color: #3b3939;
+        }
+      }
     }
     .buttons {
       display: flex;
@@ -112,6 +144,21 @@ const StyledCard = styled(motion.div)`
   }
   @media only screen and (max-width: 768px) {
     margin: 0.75rem;
+  }
+  &:hover .card-img {
+    scale: 1.15;
+  }
+  &:hover .card-details {
+    opacity: 1;
+    h2 {
+      translate: 10px;
+    }
+    a {
+      translate: -10px;
+    }
+    p {
+      scale: 1;
+    }
   }
 `;
 export default Card;

@@ -1,33 +1,36 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import fish from "../assets/Angler Fish 4.png";
+import i404 from "../assets/404.jpg";
+import PageAnimation from "../components/PageAnimation";
 
 const PageNotFound = () => {
-  const navigate404 = useNavigate();
   return (
-    <StyledPageNotFound>
-      <div className="text-container">
-        <h1>There's no light down here...</h1>
-        <h3>It seems you went too deep.</h3>
-        <button onClick={() => navigate404("/")}>Turn Back</button>
-      </div>
-      <div className="img-container">
-        <img src={fish} alt="fish" />
-      </div>
-    </StyledPageNotFound>
+    <>
+      <PageAnimation />
+      <StyledPageNotFound>
+        <div className="text-container">
+          <h1>404 not found...</h1>
+        </div>
+        <div className="img-container">
+          <img src={i404} alt="fish" />
+        </div>
+      </StyledPageNotFound>
+    </>
   );
 };
 
 const StyledPageNotFound = styled.div`
   height: 82vh;
+  display: flex;
+  align-items: center;
   .text-container {
     padding: 5rem;
     position: relative;
     color: #fff;
     width: 50%;
+    opacity: 75%;
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
     h3 {
       margin: 1rem;
@@ -38,6 +41,7 @@ const StyledPageNotFound = styled.div`
       color: #fff;
       padding: 0.5rem 1rem;
       margin: 1.5rem 1rem;
+      font-size: 1rem;
       /* border: 1px solid #fff; */
       background: #671232;
       &:hover {
@@ -46,12 +50,15 @@ const StyledPageNotFound = styled.div`
     }
   }
   .img-container {
+    background: radial-gradient(#5aa5ab, #1a445c, #052035);
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100vw;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
     z-index: -1;
     img {
+      object-fit: cover;
       width: 100%;
     }
   }
