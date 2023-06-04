@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Home, About, Contact, PageNotFound, Projects, Loading } from "./pages";
 import { Scroll, Footer, Navbar } from "./components";
 import { fetchUrl } from "./assets/data";
+import AnimatedCursor from "react-animated-cursor";
 
 function App() {
   const [themeMode, setThemeMode] = useState("light");
@@ -22,9 +23,9 @@ function App() {
     setProjects(parsedData);
     onPageLoad();
   };
-useEffect(() => {
-  setProjectsData()
-}, [])
+  useEffect(() => {
+    setProjectsData();
+  }, []);
 
   useEffect(() => {
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -41,6 +42,36 @@ useEffect(() => {
 
   return (
     <>
+      {/* //?not compatible with smooth scroll
+       <AnimatedCursor
+        innerSize={8}
+        outerSize={45}
+        innerScale={1}
+        outerScale={1.7}
+        outerAlpha={0.7}
+        hasBlendMode={true}
+        innerStyle={{
+          backgroundColor: "var(--cursor-inner-color)",
+        }}
+        outerStyle={{
+          backgroundColor: "var(--cursor-color)",
+          mixBlendMode: "exclusion",
+        }}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          'input[type="checkbox"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      /> */}
       <AnimatePresence mode="wait">
         {isLoading ? (
           <Loading key={`${isLoading}`} />

@@ -3,9 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import AnimatedText from "../components/AnimatedText";
 import PageAnimation from "../components/PageAnimation";
-import { useState } from "react";
-import { fetchUrl } from "../assets/data";
-import { useEffect } from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 
 const FeaturedProject = ({ name, summary, image, url, github }) => {
@@ -56,9 +53,9 @@ const StyledArticle = styled.article`
     img {
       width: 100%;
       height: auto;
-      transition: .3s;
+      transition: 0.3s;
     }
-    &:hover img{
+    &:hover img {
       transform: scale(1.1);
     }
   }
@@ -150,9 +147,9 @@ const StyledCard = styled.article`
     img {
       width: 100%;
       height: auto;
-      transition: .3s;
+      transition: 0.3s;
     }
-    &:hover img{
+    &:hover img {
       transform: scale(1.1);
     }
   }
@@ -192,93 +189,8 @@ const StyledCard = styled.article`
   }
 `;
 
-const data = [
-  {
-    name: "Wavelet",
-    description: "An online music streaming website built with React",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_wavelet.png",
-    tags: ["web development", "ui/ux", "react", "js", "nodejs"],
-    url: "https://wavelet.mixmaker.ml",
-    github: "https://github.com/mixmaker/wavelet",
-  },
-  {
-    name: "React Portfolio",
-    description: "My personal portfolio showcasing my works and achievements",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_reactportfolio.png",
-    tags: ["web development", "ui/ux", "react", "js", "styledcomponents"],
-    url: "https://shoumik.tk",
-    github: "https://github.com/mixmaker/portfolio",
-  },
-  {
-    name: "Notable",
-    description: "Note taking app built using react-native",
-    type: "Mobile Application",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_notable_mobile.jpg",
-    tags: ["mobile development", "react-native", "js", "ui/ux"],
-    url: "",
-    github: "https://github.com/mixmaker/wavelet-react-native",
-  },
-  {
-    name: "Capture",
-    description: "Portfolio website of a photo and video manipulation company",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_capture.png",
-    tags: ["web development", "react", "js", "framermotion"],
-    url: "https://capture.mixmaker.ml",
-    github: "https://github.com/mixmaker/capture",
-  },
-  {
-    name: "Wibe Studio",
-    description: "Fashion studio website made with React",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_wibe.png",
-    tags: [
-      "web development",
-      "react",
-      "js",
-      "framermotion",
-      "gsap",
-      "featured",
-    ],
-    summary:
-      "A modern and stylish website showcasing the fashion studio's products. Smooth animations and scrolling effects using gsap, framer-motion and locomotive scroll. It's using React JS and styled-components",
-    url: "https://wibe-studio-mixmaker.vercel.app",
-    github: "https://github.com/mixmaker/wibe-studio",
-  },
-  {
-    name: "Wavelet Mobile",
-    description: "Music streaming app built using react-native",
-    type: "Mobile Application",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_wavelet_mobile.jpg",
-    tags: ["mobile development", "react-native", "js", "ui/ux"],
-    url: "",
-    github: "https://github.com/mixmaker/wavelet-react-native",
-  },
-  {
-    name: "HTML Portfolio",
-    description: "Basic portfolio landing page made with HTML, CSS, JS",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_htmlportfolio.png",
-    tags: ["web development", "html", "css", "js"],
-    url: "https://htmlportfolio.shoumik.cf",
-    github: "https://github.com/mixmaker/html-portfolio",
-  },
-  {
-    name: "Quote Generator",
-    description:
-      "A javascript based project which displays famous quotes from an API",
-    type: "Website",
-    image: "https://ik.imagekit.io/shoumik/tr:med_thumb/ss_quotesapp.png",
-    tags: ["web development", "ui/ux", "html", "css", "js", "restapi"],
-    url: "https://quotesapp.shoumik.cf",
-    github: "https://github.com/mixmaker/random-quote-app",
-  },
-];
-
 const Projects = ({ projects }) => {
-  const featuredIndex = data.findIndex((el) =>
+  const featuredIndex = projects?.findIndex((el) =>
     el.tags.some((r) => r === "featured")
   );
   // const featured = data[data.tags.indexOf("featured")];
@@ -291,10 +203,12 @@ const Projects = ({ projects }) => {
           <AnimatedText text="Imagination Trumps Knowledge! " />
         </div>
         <div className="grid">
-          <div className="featured">
-            <FeaturedProject {...data[featuredIndex]} />
-          </div>
-          {data.map((el) => (
+          {featuredIndex > -1 && (
+            <div className="featured">
+              <FeaturedProject {...projects[featuredIndex]} />
+            </div>
+          )}
+          {projects?.map((el) => (
             <ProjectCard {...el} />
           ))}
         </div>

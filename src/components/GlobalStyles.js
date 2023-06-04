@@ -32,6 +32,8 @@ body.dark{
     --box-shadow: #000;
     --loading-bar-bg: #afb1ec;
     --vibrant: #2ee59d;
+    --cursor-color: #fff;
+    --cursor-inner-color: #000;
 }
 body.light{
     --heading-text: #3b2f6e;
@@ -48,6 +50,8 @@ body.light{
     --box-shadow: #b9bbf8;
     --loading-bar-bg: #3b40db;
     --vibrant: #00b86e;
+    --cursor-color: #000;
+    --cursor-inner-color: #fff;
     .bg{
         opacity: 0.9;
     }
